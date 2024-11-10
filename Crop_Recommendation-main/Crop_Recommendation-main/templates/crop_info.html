@@ -1,0 +1,744 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ crop }} Information</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .crop-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+            margin: 0 auto;
+        }
+        .card-title {
+            margin-bottom: 1rem;
+        }
+        .card-body ul, .card-body ol {
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body style="background:#f4f4f4;">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">Crop Recommendation System</a>
+        </div>
+    </nav>
+
+    <!-- Crop Info Section -->
+    <div class="container my-5">
+        <h1 class="text-center text-success">{{ crop }} Information</h1>
+        <p class="text-center">Detailed information about {{ crop }} and the best cultivation practices.</p>
+
+        <!-- Specific Crop Information Card -->
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title text-center">About {{ crop }}</h5>
+
+                <!-- Crop Image -->
+                <img src="static/{{ crop |lower }}.jpg" alt="{{ crop }} image" class="crop-image my-4">
+
+                <div class="card-text">
+                    {% if crop == "Rice" %}
+                        <h5>Season</h5>
+                        <p>Best grown in the rainy season, sowing in June-July and harvesting in November-December.</p>
+                        <h5>Climate</h5>
+                        <p>Warm and humid; ideal temperatures are 20–30°C, with heavy rainfall.</p>
+                        <h5>Soil</h5>
+                        <p>Clayey or loamy soils that retain moisture well.</p>
+                        <h5>Nutrient Requirement</h5>
+                        <p>High nitrogen (N), moderate phosphorus (P) and potassium (K); N-P-K Ratio: 40:20:20.</p>
+                        <h5>Growing Techniques</h5>
+                        <ol>
+                            <li>Transplant seedlings to flooded fields for proper establishment and weed control.</li>
+                            <li>Maintain water levels; drain before harvesting.</li>
+                        </ol>
+                        <h5>Additional Tips</h5>
+                        <ul>
+                            <li>Use controlled-release nitrogen to prevent leaching.</li>
+                            <li>Maintain proper water levels early on; reduce as harvest approaches.</li>
+                        </ul>
+
+                        {% elif crop == "Maize" %}
+                        <h5>Season</h5>
+                        <ul>
+                            <li><strong>Spring:</strong> Grown from March to June.</li>
+                            <li><strong>Autumn:</strong> Grown from September to December, depending on the region.</li>
+                        </ul>
+                    
+                        <h5>Climate</h5>
+                        <p>Requires warm temperatures ranging from 21–30°C. Prefers moderate rainfall and sunlight throughout the growing period for optimal growth.</p>
+                    
+                        <h5>Soil</h5>
+                        <p>Thrives in well-drained loamy soil that supports root growth and retains moisture without becoming waterlogged.</p>
+                    
+                        <h5>Nutrient Requirement</h5>
+                        <ul>
+                            <li>High requirement of nitrogen (N) to promote healthy foliage and growth.</li>
+                            <li>Moderate levels of phosphorus (P) and potassium (K) for root and grain development.</li>
+                        </ul>
+                    
+                        <h5>Fertilizer Combination</h5>
+                        <p><strong>N-P-K Ratio:</strong> 50:25:25.</p>
+                        <p><strong>Application:</strong> Apply 100–150 kg/ha of nitrogen, 60–80 kg/ha of phosphorus, and 40–60 kg/ha of potassium.</p>
+                        <ul>
+                            <li><strong>Split Nitrogen:</strong> Apply nitrogen in split doses—initially at sowing, and then during growth stages like knee-high and tasseling stages—to ensure steady nutrient availability and prevent leaching.</li>
+                        </ul>
+                    
+                        <h5>Growing Techniques</h5>
+                        <ul>
+                            <li><strong>Row Planting:</strong> Plant maize in rows with 20–25 cm spacing between plants. This spacing allows adequate airflow and encourages healthy root and shoot development.</li>
+                            <li><strong>Depth:</strong> Sow seeds at a depth of 3–5 cm in moist soil for better germination.</li>
+                        </ul>
+                    
+                        <h5>Additional Tips</h5>
+                        <ul>
+                            <li><strong>Crop Rotation:</strong> Rotate maize with legumes (such as soybeans or lentils) to naturally enrich soil nitrogen levels and reduce the risk of pest buildup.</li>
+                            <li><strong>Irrigation:</strong> Water the crop moderately during critical stages. Ensure adequate moisture during tasseling (flowering) and avoid water stress during silking (when ears start forming) to support grain development.</li>
+                            <li><strong>Pest and Weed Management:</strong> Use mulching or manual weeding early in the season to prevent weed competition. Consider integrated pest management (IPM) strategies for common pests like corn borers.</li>
+                        </ul>
+                    
+
+                        {% elif crop == "Jute" %}
+                        <h5>Season</h5>
+                        <ul>
+                            <li><strong>Sowing:</strong> March to May.</li>
+                            <li><strong>Harvesting:</strong> August to October.</li>
+                        </ul>
+                    
+                        <h5>Climate</h5>
+                        <p>Thrives in warm, humid conditions with temperatures ranging from 24–37°C. Requires high rainfall throughout the growing season for optimal fiber production.</p>
+                    
+                        <h5>Soil</h5>
+                        <p>Prefers slightly acidic, well-drained sandy loam soil. This soil type promotes healthy root development and efficient drainage, which is essential for jute.</p>
+                    
+                        <h5>Nutrient Requirement</h5>
+                        <ul>
+                            <li>Moderate amounts of nitrogen (N) to support vegetative growth.</li>
+                            <li>Moderate potassium (K) for plant vigor and fiber strength.</li>
+                        </ul>
+                    
+                        <h5>Fertilizer Combination</h5>
+                        <p><strong>N-P-K Ratio:</strong> 30:20:20.</p>
+                        <p><strong>Application:</strong> Apply 50–60 kg/ha of nitrogen, 30–40 kg/ha of phosphorus, and 30–40 kg/ha of potassium.</p>
+                        <ul>
+                            <li><strong>Split Nitrogen:</strong> Apply fertilizers in stages, with nitrogen split over multiple doses to sustain plant growth during key stages.</li>
+                        </ul>
+                    
+                        <h5>Growing Techniques</h5>
+                        <ul>
+                            <li><strong>Dense Sowing:</strong> Sow seeds densely in moist soil for uniform growth.</li>
+                            <li><strong>Water Management:</strong> Ensure a consistent water supply, especially in the initial growth stages, as moisture stress can reduce fiber quality.</li>
+                        </ul>
+                    
+                        <h5>Additional Tips</h5>
+                        <ul>
+                            <li><strong>Spacing During Germination:</strong> Maintain adequate spacing to avoid overcrowding during germination, which can reduce plant vigor and fiber quality.</li>
+                            <li><strong>Retting Process:</strong> After harvest, carry out proper retting (the process of decomposing the outer layer of the stem to extract fibers) to ensure high-quality fiber. This process is typically done in slow-moving water bodies to retain fiber softness and luster.</li>
+                            <li><strong>Weed Control:</strong> Early weed control is essential to reduce competition for nutrients and water.</li>
+                        </ul>
+
+                        {% elif crop == "Cotton" %}
+                        <h5>Season</h5>
+                        <ul>
+                            <li><strong>Planting:</strong> Late spring (April-May).</li>
+                            <li><strong>Harvesting:</strong> Autumn (September-November).</li>
+                        </ul>
+                    
+                        <h5>Climate</h5>
+                        <p>Requires warm conditions with temperatures ranging from 25–35°C. Sensitive to frost and needs moderate rainfall; excessive rainfall or humidity can lead to pest and disease issues.</p>
+                    
+                        <h5>Soil</h5>
+                        <p>Thrives in deep, well-drained sandy loam soil. This soil type supports extensive root growth and prevents waterlogging, which cotton is sensitive to.</p>
+                    
+                        <h5>Nutrient Requirement</h5>
+                        <ul>
+                            <li>High levels of nitrogen (N) for vegetative growth, phosphorus (P) for root and seed development, and potassium (K) for fiber quality.</li>
+                            <li>Calcium may also be required if soil tests indicate a deficiency, as it supports strong plant structure.</li>
+                        </ul>
+                    
+                        <h5>Fertilizer Combination</h5>
+                        <p><strong>N-P-K Ratio:</strong> 50:25:25.</p>
+                        <p><strong>Application:</strong> Apply 100–150 kg/ha of nitrogen, 50–60 kg/ha of phosphorus, and 50–80 kg/ha of potassium.</p>
+                        <ul>
+                            <li><strong>Calcium Nitrate:</strong> Consider using calcium nitrate if calcium is needed, especially in acidic soils.</li>
+                            <li><strong>Split Nitrogen:</strong> Apply nitrogen in split doses (e.g., at planting, and then during early growth stages) to maintain steady nutrient availability.</li>
+                        </ul>
+                    
+                        <h5>Growing Techniques</h5>
+                        <ul>
+                            <li><strong>Row Planting:</strong> Plant in rows with 50–60 cm spacing between plants to ensure proper air circulation, which helps reduce the risk of fungal diseases.</li>
+                            <li><strong>Plant Depth:</strong> Sow seeds 2–3 cm deep to ensure good seed-to-soil contact.</li>
+                        </ul>
+                    
+                        <h5>Additional Tips</h5>
+                        <ul>
+                            <li><strong>Irrigation Management:</strong> Avoid over-irrigation as cotton is sensitive to waterlogging, which can lead to root rot and affect crop quality. Maintain moderate soil moisture, especially during flowering and boll formation.</li>
+                            <li><strong>Pest and Disease Control:</strong> Monitor regularly for pests such as cotton bollworms, and use integrated pest management (IPM) practices to minimize chemical reliance.</li>
+                            <li><strong>Soil Health:</strong> Rotate cotton with legumes to restore soil nitrogen levels and reduce soil depletion, as cotton is nutrient-intensive.</li>
+                        </ul>
+
+
+                    {% elif crop == "Coconut" %}
+                        <h5>Season</h5>
+                        <ul>
+                            <li><strong>Planting:</strong> Can be planted year-round in tropical regions. Best planting season is during the monsoon (June-August) when natural rainfall supports initial growth.</li>
+                        </ul>
+
+                        <h5>Climate</h5>
+                        <p>Thrives in a tropical climate with temperatures ranging from 20–32°C. Requires high humidity and abundant rainfall for optimal growth and nut production.</p>
+
+                        <h5>Soil</h5>
+                        <p>Prefers loamy or sandy soil that’s well-drained to prevent root rot and support healthy root expansion. Soil should have good organic content and be able to retain moisture without waterlogging.</p>
+
+                        <h5>Nutrient Requirement</h5>
+                        <ul>
+                            <li>High need for potassium (K) to support nut production and quality.</li>
+                            <li>Moderate requirements for nitrogen (N) and calcium (Ca) for foliage growth and structural integrity.</li>
+                        </ul>
+
+                        <h5>Fertilizer Combination</h5>
+                        <p><strong>N-P-K Ratio:</strong> 50:25:100.</p>
+                        <p><strong>Application:</strong> Apply 500–800 g/tree of nitrogen, 250–400 g/tree of phosphorus, and 1 kg/tree of potassium.</p>
+                        <ul>
+                            <li>Fertilizers are best applied quarterly to ensure steady nutrient availability throughout the growing cycle.</li>
+                        </ul>
+
+                        <h5>Growing Techniques</h5>
+                        <ul>
+                            <li><strong>Spacing:</strong> Plant seedlings 8–10 meters apart to allow for proper canopy spread, sunlight penetration, and airflow around each tree.</li>
+                            <li><strong>Planting Depth:</strong> Plant seedlings deep enough to stabilize the tree against winds, common in tropical areas.</li>
+                        </ul>
+
+                        <h5>Additional Tips</h5>
+                        <ul>
+                            <li><strong>Mulching:</strong> Apply mulch around the base of the tree to retain soil moisture, suppress weeds, and improve organic matter content as it decomposes.</li>
+                            <li><strong>Organic Compost:</strong> Adding compost or farmyard manure annually enhances soil fertility, providing additional micronutrients that benefit tree health and nut yield.</li>
+                            <li><strong>Watering:</strong> Young trees benefit from regular watering during dry spells. Mature trees usually withstand drought but yield better with periodic irrigation.</li>
+                            <li><strong>Pest and Disease Management:</strong> Monitor for pests such as rhinoceros beetles and red palm weevils. Use integrated pest management (IPM) to reduce pest impact.</li>
+                        </ul>
+
+                        {% elif crop == "Papaya" %}
+                        <h5>Season</h5>
+                        <ul>
+                            <li><strong>Planting:</strong> Best in spring (February-April) for optimal growth and fruiting.</li>
+                        </ul>
+
+                        <h5>Climate</h5>
+                        <p>Requires warm temperatures between 25–30°C. Prefers regions with moderate rainfall; excessive moisture or frost can damage the plant.</p>
+
+                        <h5>Soil</h5>
+                        <p>Thrives in fertile, well-drained loamy soil with slight acidity. Good drainage is crucial as papaya is sensitive to waterlogging.</p>
+
+                        <h5>Nutrient Requirement</h5>
+                        <ul>
+                            <li>High demand for nitrogen (N) to support lush foliage and fast growth.</li>
+                            <li>Potassium (K) is essential for fruit quality and yield.</li>
+                        </ul>
+
+                        <h5>Fertilizer Combination</h5>
+                        <p><strong>N-P-K Ratio:</strong> 50:25:50.</p>
+                        <p><strong>Application:</strong> Apply 200–300 g/tree of nitrogen, 150–200 g/tree of phosphorus, and 300–400 g/tree of potassium.</p>
+                        <ul>
+                            <li>Apply fertilizers every 3–4 months for sustained growth and fruiting.</li>
+                        </ul>
+
+                        <h5>Growing Techniques</h5>
+                        <ul>
+                            <li><strong>Direct Sowing:</strong> Sow seeds directly with adequate spacing (at least 2–3 meters apart) to ensure each plant has enough sunlight exposure and air circulation.</li>
+                            <li><strong>Plant Depth:</strong> Place seeds about 1–2 cm deep in moist soil for successful germination.</li>
+                        </ul>
+
+                        <h5>Additional Tips</h5>
+                        <ul>
+                            <li><strong>Frost Protection:</strong> Papaya is highly sensitive to frost, which can kill young plants. In cooler regions, consider planting in sheltered areas or using protective coverings during cold spells.</li>
+                            <li><strong>Pruning:</strong> Regular pruning of lower branches encourages airflow, reduces disease risk, and helps control plant height for easier harvesting.</li>
+                            <li><strong>Drainage:</strong> Ensure proper soil drainage to prevent root rot, particularly during rainy seasons. Raised beds or mounds can be beneficial in areas with heavy rainfall.</li>
+                            <li><strong>Pest and Disease Control:</strong> Monitor for common pests like aphids and whiteflies, and apply organic insecticides if needed. Regularly inspect plants for fungal diseases, especially during humid periods.</li>
+                        </ul>
+
+
+                        {% elif crop == "Orange" %}
+                        <h5>Season</h5>
+                        <br>
+                        <p><strong>Planting:</strong> Best during spring or early monsoon for healthy establishment and growth.</p>
+                    
+                        <h5>Climate</h5>
+                        <p>Grows well in subtropical climates with mild winters and warm summers. Sensitive to extreme cold and frost, so protection is needed in colder regions.</p>
+                    
+                        <h5>Soil</h5>
+                        <p>Prefers slightly acidic, well-drained soil with a pH of 5.5–6.5. Proper drainage is essential to prevent root diseases common in citrus trees.</p>
+                    
+                        <h5>Nutrient Requirement</h5>
+                        <p>Requires a balanced supply of nitrogen (N) for growth, phosphorus (P) for root development, and potassium (K) for fruit quality. Magnesium and calcium are also important for strong foliage and overall tree health.</p>
+                    
+                        <h5>Fertilizer Combination</h5>
+                        <p><strong>N-P-K Ratio:</strong> 50:25:50.</p>
+                        <p><strong>Application:</strong> Apply 600–700 g/tree of nitrogen, 200–300 g/tree of phosphorus, and 400–600 g/tree of potassium.</p>
+                        <p>Apply fertilizers in three doses throughout the year—before flowering, during fruit setting, and before harvest—to support sustained growth and fruiting.</p>
+                    
+                        <h5>Growing Techniques</h5>
+                        <ul>
+                            <li><strong>Grafted Saplings:</strong> Plant grafted saplings for better disease resistance and higher fruit yield.</li>
+                            <li><strong>Spacing:</strong> Space trees 5–6 meters apart to allow canopy spread and airflow, reducing disease risk.</li>
+                            <li><strong>Plant Depth:</strong> Dig deep holes (30–40 cm) to establish healthy root systems.</li>
+                        </ul>
+                    
+                        <h5>Additional Tips</h5>
+                        <ul>
+                            <li><strong>Mulching:</strong> Apply a layer of mulch around the base to retain soil moisture, reduce weed growth, and regulate soil temperature.</li>
+                            <li><strong>Organic Manure:</strong> Supplement the soil with organic manure or compost once a year to improve soil structure and provide essential micronutrients for better fruit quality.</li>
+                            <li><strong>Irrigation:</strong> Ensure regular watering, especially during dry spells, but avoid over-watering as oranges are sensitive to root rot.</li>
+                            <li><strong>Pest and Disease Management:</strong> Monitor for common citrus pests like aphids, mites, and citrus leaf miners. Use integrated pest management (IPM) techniques and apply organic pesticides if necessary.</li>
+                        </ul>
+                    
+                    
+                       {% elif crop == "Apple" %}
+                    <h5>Season</h5>
+                    <ul>
+                        <li><strong>Planting:</strong> Best in winter or early spring for optimal establishment before summer growth.</li>
+                    </ul>
+
+                    <h5>Climate</h5>
+                    <p>Requires cold winters for dormancy and moderate summers for fruit development. Ideal for temperate regions with distinct winter and summer seasons.</p>
+
+                    <h5>Soil</h5>
+                    <p>Prefers slightly acidic, loamy, well-drained soil with a pH between 6.0–6.5. Soil drainage is essential to avoid waterlogging, which can lead to root diseases.</p>
+
+                    <h5>Nutrient Requirement</h5>
+                    <ul>
+                        <li>Needs a balanced supply of nitrogen (N), phosphorus (P), and potassium (K) to support vegetative growth and fruit quality.</li>
+                        <li>Boron is also essential for flowering and fruit setting.</li>
+                    </ul>
+
+                    <h5>Fertilizer Combination</h5>
+                    <p><strong>N-P-K Ratio:</strong> 30:10:40.</p>
+                    <p><strong>Application:</strong> Apply 60–100 kg/ha of nitrogen, 20–40 kg/ha of phosphorus, and 80–100 kg/ha of potassium.</p>
+                    <ul>
+                        <li>Apply fertilizers during key stages, including bud break, flowering, and fruit development, to ensure consistent nutrient availability.</li>
+                    </ul>
+
+                    <h5>Growing Techniques</h5>
+                    <ul>
+                        <li><strong>Grafted Trees:</strong> Plant grafted trees for better yield and disease resistance.</li>
+                        <li><strong>Spacing:</strong> Space trees 4–5 meters apart to allow canopy spread, sunlight access, and good air circulation, which helps reduce disease risk.</li>
+                        <li><strong>Plant Depth:</strong> Place graft unions above the soil line to avoid rootstock sprouting.</li>
+                    </ul>
+
+                    <h5>Additional Tips</h5>
+                    <ul>
+                        <li><strong>Annual Pruning:</strong> Prune trees yearly to maintain shape, enhance airflow, and maximize sunlight penetration, which improves fruit size and quality.</li>
+                        <li><strong>Frost Protection:</strong> Use protective coverings for young trees to prevent late-spring frost damage to buds and flowers.</li>
+                        <li><strong>Mulching:</strong> Mulch around the base to conserve soil moisture, suppress weeds, and maintain consistent soil temperatures.</li>
+                        <li><strong>Pest and Disease Control:</strong> Apples are susceptible to pests like codling moths and diseases like apple scab. Implement integrated pest management (IPM) and regularly inspect trees for early signs of issues.</li>
+                    </ul>
+
+
+                    {% elif crop == "Kidneybeans" %}
+                    <h5>Season</h5>
+                    <p>Plant kidney beans in late spring when soil temperatures reach around 15–18°C for successful germination and growth.</p>
+
+                    <h5>Climate</h5>
+                    <p>Optimal growth occurs between 18–30°C. Kidney beans are warm-season crops and do not tolerate frost. They prefer moderate humidity levels to avoid fungal issues, with warm, dry weather being ideal during pod development.</p>
+
+                    <h5>Soil</h5>
+                    <p>Best grown in well-drained, sandy loam soil. Kidney beans are sensitive to waterlogged conditions, which can lead to root diseases. The ideal soil pH is between 6.0–7.0.</p>
+
+                    <h5>Nutrient Requirement</h5>
+                    <p>Since kidney beans fix their own nitrogen, they require little additional nitrogen. Phosphorus is essential for root and flower development and should be applied at planting, while potassium supports overall plant vigor and disease resistance.</p>
+
+                    <h5>Fertilizer Combination</h5>
+                    <p>N-P-K Ratio: 0-20-20. Apply 40–50 kg/ha of phosphorus and 40–50 kg/ha of potassium at planting to encourage growth.</p>
+
+                    <h5>Growing Techniques</h5>
+                    <ol>
+                        <li>Spacing: Plant seeds 10–15 cm apart in rows, with rows 40–50 cm apart, to promote air circulation and minimize disease.</li>
+                        <li>Weed Control: Use shallow cultivation or organic mulch to suppress weeds early on.</li>
+                    </ol>
+
+                    <h5>Additional Tips</h5>
+                    <ul>
+                        <li>Irrigation: Avoid over-watering. Apply water sparingly, especially during flowering and pod formation, to prevent root rot.</li>
+                        <li>Disease Management: Rotate crops and use resistant varieties to minimize issues with bacterial and fungal diseases.</li>
+                        <li>Pest Management: Monitor for pests like aphids and bean beetles. Apply organic treatments as needed, keeping an eye on beneficial insect populations.</li>
+                    </ul>
+                    
+                    {% elif crop == "Chickpea" %}
+                    <h5>Season</h5>
+                    <p>Ideal planting time for chickpeas is in late winter to early spring, as they thrive in cool temperatures and can tolerate light frost during early stages.</p>
+
+                    <h5>Climate</h5>
+                    <p>Optimal growth occurs between 15–30°C. Chickpeas are cool-season legumes and do not fare well in extreme heat. They prefer low-humidity environments to avoid fungal diseases. Warm, dry conditions during pod development are ideal.</p>
+
+                    <h5>Soil</h5>
+                    <p>Best grown in well-drained, loamy or sandy soil. Chickpeas are sensitive to waterlogged conditions, which can cause root rot. Soil pH should be between 6.0–7.5 for optimal nutrient availability.</p>
+
+                    <h5>Nutrient Requirement</h5>
+                    <p>Since chickpeas fix their own nitrogen, additional nitrogen is generally unnecessary. Phosphorus is essential for root development and should be applied at planting, while potassium enhances overall plant vigor and disease resistance.</p>
+
+                    <h5>Fertilizer Combination</h5>
+                    <p>N-P-K Ratio: 0-20-20, with 50–60 kg/ha of phosphorus and 50–60 kg/ha of potassium applied at planting to support growth and yield.</p>
+
+                    <h5>Growing Techniques</h5>
+                    <ol>
+                        <li>Spacing: Plant seeds 30–40 cm apart in rows to promote airflow and minimize disease.</li>
+                        <li>Weed Control: Use shallow cultivation or mulch to control weeds early in the growth cycle.</li>
+                    </ol>
+
+                    <h5>Additional Tips</h5>
+                    <ul>
+                        <li>Irrigation: Minimal irrigation is required. Avoid excess water after flowering, as it can reduce seed quality.</li>
+                        <li>Disease Management: Chickpeas are prone to diseases like Ascochyta blight. Rotate crops and plant disease-resistant varieties when possible.</li>
+                        <li>Pest Management: Monitor for pests like aphids and pod borers. Organic treatments can be applied sparingly to protect beneficial insects.</li>
+                    </ul>
+
+
+                    {% elif crop == "Mothbeans" %}
+                    <h5>Season</h5>
+                    <p>Plant moth beans in early summer to take advantage of warm temperatures, as they are well-suited for hot, arid climates.</p>
+
+                    <h5>Climate</h5>
+                    <p>Optimal growth occurs between 25–35°C. Moth beans are extremely drought-tolerant and thrive in hot, dry conditions. They prefer low humidity to prevent fungal issues, as excess humidity can lead to disease.</p>
+
+                    <h5>Soil</h5>
+                    <p>Best grown in well-drained sandy or loamy soils. Moth beans are resilient and tolerate poorer soils well, with an ideal soil pH of 6.0–7.5.</p>
+
+                    <h5>Nutrient Requirement</h5>
+                    <p>Moth beans fix their own nitrogen and require minimal additional nitrogen. Phosphorus is important for root and early plant development, while potassium supports drought resistance and overall plant health.</p>
+
+                    <h5>Fertilizer Combination</h5>
+                    <p>N-P-K Ratio: 0-20-20. Apply 20–30 kg/ha of phosphorus and 20–30 kg/ha of potassium at planting for optimal growth.</p>
+
+                    <h5>Growing Techniques</h5>
+                    <ol>
+                        <li>Spacing: Plant seeds 20–30 cm apart, with rows spaced 40–50 cm apart to ensure proper airflow.</li>
+                        <li>Weed Control: Use shallow cultivation or mulch to manage weeds, especially in the early stages.</li>
+                    </ol>
+
+                    <h5>Additional Tips</h5>
+                    <ul>
+                        <li>Irrigation: Moth beans require minimal water once established. Avoid over-watering, and water sparingly during dry spells.</li>
+                        <li>Disease Management: Practice crop rotation to reduce soil-borne diseases, and plant in well-drained soils to prevent root rot.</li>
+                        <li>Pest Management: Watch for pests like aphids and beetles. Apply organic treatments sparingly to protect beneficial insects.</li>
+                    </ul>
+
+                    {% elif crop == "Mungbean" %}
+                    <h5>Season</h5>
+                    <p>Best planted in late spring to early summer when the soil temperature reaches around 20°C. Mung beans are warm-season crops.</p>
+
+                    <h5>Climate</h5>
+                    <p>Optimal growth occurs between 25–35°C. Mung beans are sensitive to frost and thrive in warm, sunny conditions. They prefer moderate humidity, as too much moisture can lead to fungal diseases, especially during the flowering and pod development stages.</p>
+
+                    <h5>Soil</h5>
+                    <p>Ideal soil is well-drained sandy loam or loamy soil. Mung beans are prone to root rot in waterlogged conditions, with an ideal soil pH between 6.2–7.2.</p>
+
+                    <h5>Nutrient Requirement</h5>
+                    <p>Mung beans fix their own nitrogen and generally do not need additional nitrogen. Phosphorus is important for strong root and flower development, while potassium enhances disease resistance and improves pod quality.</p>
+
+                    <h5>Fertilizer Combination</h5>
+                    <p>N-P-K Ratio: 0-20-20. Apply 20–40 kg/ha of phosphorus and 20–40 kg/ha of potassium at planting to support growth and yield.</p>
+
+                    <h5>Growing Techniques</h5>
+                    <ol>
+                        <li>Spacing: Plant seeds 10–15 cm apart within rows, with rows spaced 45–60 cm apart for adequate airflow.</li>
+                        <li>Weed Control: Use shallow cultivation or mulch early in the season to suppress weeds.</li>
+                    </ol>
+
+                    <h5>Additional Tips</h5>
+                    <ul>
+                        <li>Irrigation: Mung beans require minimal irrigation. Avoid over-watering, especially during flowering and pod formation.</li>
+                        <li>Disease Management: Practice crop rotation and use disease-resistant varieties to reduce risks of diseases such as powdery mildew and root rot.</li>
+                        <li>Pest Management: Monitor for pests like aphids and whiteflies. Apply organic treatments sparingly to protect beneficial insects.</li>
+                    </ul>
+
+                    {% elif crop == "Blackgram" %}
+                    <h5>Season</h5>
+                    <p>Best planted in early summer or during the monsoon season, depending on the region. Black gram is a warm-season crop.</p>
+
+                    <h5>Climate</h5>
+                    <p>Optimal growth occurs between 25–35°C. Black gram is sensitive to frost and grows well in warm, humid conditions. It prefers moderate to high humidity, especially during flowering and pod development.</p>
+
+                    <h5>Soil</h5>
+                    <p>Ideal soil type is well-drained loamy or clay loam. Black gram is sensitive to waterlogging, so soils must be well-drained, with a pH of 6.0–7.5.</p>
+
+                    <h5>Nutrient Requirement</h5>
+                    <p>Black gram fixes its own nitrogen and generally does not require additional nitrogen. Phosphorus is important for root development and pod formation, while potassium enhances resistance to diseases and improves pod quality.</p>
+
+                    <h5>Fertilizer Combination</h5>
+                    <p>N-P-K Ratio: 0-20-20. Apply 20–30 kg/ha of phosphorus and 20–30 kg/ha of potassium at planting to support growth and yield.</p>
+
+                    <h5>Growing Techniques</h5>
+                    <ol>
+                        <li>Spacing: Plant seeds 10–15 cm apart within rows, with rows spaced 30–40 cm apart to improve airflow and reduce disease risk.</li>
+                        <li>Weed Control: Use shallow cultivation or mulch to manage weeds early in the growth cycle.</li>
+                    </ol>
+
+                    <h5>Additional Tips</h5>
+                    <ul>
+                        <li>Irrigation: Black gram is drought-tolerant; water sparingly, especially during flowering and pod development. Over-watering can cause root rot.</li>
+                        <li>Disease Management: Rotate crops and use disease-resistant varieties to reduce risks of common diseases like leaf spot and blight.</li>
+                        <li>Pest Management: Monitor for pests like aphids and pod borers. Apply organic treatments sparingly to protect beneficial insects.</li>
+                    </ul>
+
+                    {% elif crop == "Lentil" %}
+                    <h5>Season</h5>
+                    <p>Best planted in early spring or late winter in temperate regions. Lentils are cool-season crops and tolerate frost at early stages.</p>
+
+                    <h5>Climate</h5>
+                    <p>Optimal growth occurs between 18–28°C. Lentils thrive in cool to moderate temperatures and require a dry period during maturation. They prefer low humidity, as excess moisture can lead to fungal diseases, especially during flowering and pod formation.</p>
+
+                    <h5>Soil</h5>
+                    <p>Well-drained loamy or sandy loam soils are ideal. Lentils do not tolerate waterlogged conditions well. The ideal soil pH is between 6.0–8.0.</p>
+
+                    <h5>Nutrient Requirement</h5>
+                    <p>Lentils fix their own nitrogen, so additional nitrogen is generally unnecessary. Phosphorus is essential for strong root development and flowering, while potassium enhances drought tolerance and disease resistance.</p>
+
+                    <h5>Fertilizer Combination</h5>
+                    <p>N-P-K Ratio: 0-20-20. Apply 20–30 kg/ha of phosphorus and 20–30 kg/ha of potassium at planting to support healthy growth and yield.</p>
+
+                    <h5>Growing Techniques</h5>
+                    <ol>
+                        <li>Spacing: Plant seeds 3–5 cm apart within rows, with rows spaced 20–30 cm apart to promote airflow and minimize disease.</li>
+                        <li>Weed Control: Use shallow cultivation or mulching early in the growth cycle to control weeds.</li>
+                    </ol>
+
+                    <h5>Additional Tips</h5>
+                    <ul>
+                        <li>Irrigation: Lentils require minimal water. Avoid excessive watering, especially after flowering, to maintain seed quality.</li>
+                        <li>Disease Management: Rotate crops and plant disease-resistant varieties to reduce risks of fungal diseases such as Ascochyta blight and root rot.</li>
+                        <li>Pest Management: Monitor for pests like aphids and weevils. Use organic treatments sparingly to protect beneficial insects.</li>
+                    </ul>
+                    
+                    {% elif crop == "Pomegranate" %}
+                    <h5>Season</h5>
+                    <p>Best planted in early spring or fall in regions with mild winters. Pomegranates are well-suited to warm, dry climates.</p>
+
+                    <h5>Climate</h5>
+                    <p>Ideal growth occurs between 25–35°C. Pomegranates are drought-tolerant and thrive in hot, arid conditions. Low to moderate humidity is preferred to reduce the risk of fungal diseases during fruit development.</p>
+
+                    <h5>Soil</h5>
+                    <p>Well-drained sandy loam or loamy soils are ideal. Pomegranates are sensitive to waterlogged conditions, so drainage is essential. Optimal soil pH is between 5.5–7.0.</p>
+
+                    <h5>Nutrient Requirement</h5>
+                    <p>Nitrogen supports vegetative growth, phosphorus is important for root and flower development, and potassium enhances fruit quality, color, and sweetness.</p>
+
+                    <h5>Fertilizer Combination</h5>
+                    <p>N-P-K Ratio: 5-5-10. Apply 100–200 g/tree of nitrogen, 50–100 g/tree of phosphorus, and 100–150 g/tree of potassium annually, divided into applications during early spring and fruit set.</p>
+
+                    <h5>Growing Techniques</h5>
+                    <ol>
+                        <li>Spacing: Plant trees 4–5 meters apart to allow adequate airflow and sunlight for fruit development.</li>
+                        <li>Pruning: Regular pruning is essential to shape the canopy and improve air circulation, which helps reduce disease risks.</li>
+                    </ol>
+
+                    <h5>Additional Tips</h5>
+                    <ul>
+                        <li>Irrigation: Pomegranates are drought-tolerant, but regular watering is essential during flowering and fruiting stages. Avoid over-watering to prevent root rot.</li>
+                        <li>Disease Management: Rotate crops and use disease-resistant varieties to reduce fungal disease risks, such as leaf spot and fruit rot.</li>
+                        <li>Pest Management: Monitor for pests like aphids and whiteflies. Organic treatments can be used, but apply sparingly to protect beneficial insects.</li>
+                    </ul>
+
+                    {% elif crop == "Pigeonpea" %}
+                    <h5>Season</h5>
+                    <p>Best planted in late spring to early summer, after the last frost, when soil temperatures are above 18°C.</p>
+
+                    <h5>Climate</h5>
+                    <p>Optimal growth occurs between 18–35°C. Pigeon peas are drought-tolerant and prefer warm climates. They thrive in moderate humidity but may suffer in very high humidity, which can promote fungal diseases.</p>
+
+                    <h5>Soil</h5>
+                    <p>Prefers well-drained loamy soil but can tolerate a variety of soil types, including slightly acidic or alkaline soils. Ideal soil pH is between 5.0–7.0.</p>
+
+                    <h5>Nutrient Requirement</h5>
+                    <p>As pigeon peas fix their own nitrogen, additional nitrogen is typically unnecessary. Phosphorus is important for root development and early growth, while potassium supports disease resistance and enhances pod quality.</p>
+
+                    <h5>Fertilizer Combination</h5>
+                    <p>N-P-K Ratio: 0-20-20. Apply 40–60 kg/ha of phosphorus and 40–60 kg/ha of potassium at planting to ensure healthy growth.</p>
+
+                    <h5>Growing Techniques</h5>
+                    <ol>
+                        <li>Spacing: Plant seeds 30–50 cm apart within rows, with rows spaced 90–120 cm apart for airflow and sunlight penetration.</li>
+                        <li>Weed Control: Use mulch or shallow cultivation to control weeds, especially during early growth stages.</li>
+                    </ol>
+
+                    <h5>Additional Tips</h5>
+                    <ul>
+                        <li>Irrigation: Drought-tolerant once established. Water sparingly, mainly during prolonged dry spells, especially at flowering and pod development.</li>
+                        <li>Disease Management: Rotate with other crops to reduce soil-borne diseases and use disease-resistant varieties where possible.</li>
+                        <li>Pest Management: Monitor for pests like pod borers and aphids. Apply organic sprays as needed, sparingly, to protect beneficial insects.</li>
+                    </ul>
+                    
+                    {% elif crop == "Muskmelon" %}
+                    <h5>Muskmelon Cultivation</h5>
+
+                    <h5>Season</h5>
+                    <ul>
+                        <li><strong>Planting:</strong> Best from spring to early summer (February-May) for optimal growth and fruit development.</li>
+                    </ul>
+                    
+                    <h5>Climate</h5>
+                    <p>Requires warm, sunny weather with temperatures around 25–35°C. Needs a dry climate during the fruiting period for improved fruit quality.</p>
+                    
+                    <h5>Soil</h5>
+                    <p>Prefers sandy, well-drained soil to prevent waterlogging, which muskmelon is sensitive to. Slightly acidic to neutral pH (6.0–7.0) is ideal.</p>
+                    
+                    <h5>Nutrient Requirement</h5>
+                    <ul>
+                        <li>High demand for nitrogen (N) to support leaf and vine growth and potassium (K) to enhance fruit sweetness and size.</li>
+                        <li>Moderate need for phosphorus (P) to promote root growth.</li>
+                    </ul>
+                    
+                    <h5>Fertilizer Combination</h5>
+                    <p><strong>N-P-K Ratio:</strong> 40:20:40.</p>
+                    <p><strong>Application:</strong> Apply 80–100 kg/ha of nitrogen, 40–50 kg/ha of phosphorus, and 60–80 kg/ha of potassium.</p>
+                    <ul>
+                        <li>Fertilize at critical growth stages: after seedling establishment, during vine growth, and before flowering.</li>
+                    </ul>
+                    
+                    <h5>Growing Techniques</h5>
+                    <ul>
+                        <li><strong>Hill Planting:</strong> Plant seeds in small hills or mounds to support vine growth and improve soil drainage.</li>
+                        <li><strong>Spacing:</strong> Space hills 60–90 cm apart to allow vines room to spread and optimize sunlight exposure.</li>
+                    </ul>
+                    
+                    <h5>Additional Tips</h5>
+                    <ul>
+                        <li><strong>Watering:</strong> Provide consistent watering, especially during flowering and fruiting, but avoid waterlogging, which can cause root rot and reduce fruit sweetness.</li>
+                        <li><strong>Mulching:</strong> Use plastic mulch to help retain soil moisture, suppress weeds, and warm the soil for faster growth.</li>
+                        <li><strong>Pollination:</strong> Encourage pollinators like bees by planting near flowering plants, as good pollination improves fruit size and yield.</li>
+                        <li><strong>Pest and Disease Management:</strong> Monitor for pests like aphids and beetles. Apply organic insecticides as needed and practice crop rotation to reduce disease risk.</li>
+                    </ul>
+
+                    {% elif crop == "Watermelon" %}
+                    <h5>Watermelon Cultivation</h5>
+
+                    <h5>Season</h5>
+                    <ul>
+                        <li><strong>Planting:</strong> Ideal from spring to early summer for vigorous growth and fruit setting.</li>
+                    </ul>
+                    
+                    <h5>Climate</h5>
+                    <p>Requires a hot, sunny climate with temperatures of 25–35°C. Prolonged warmth and sunlight help improve sweetness and fruit size.</p>
+                    
+                    <h5>Soil</h5>
+                    <p>Prefers sandy, well-drained soil with a pH between 6.0–7.0. Well-drained soil prevents waterlogging, which is crucial as watermelon roots are prone to rot in wet conditions.</p>
+                    
+                    <h5>Nutrient Requirement</h5>
+                    <p>Requires balanced nitrogen (N) for vine growth, phosphorus (P) for root and flower development, and potassium (K) to enhance fruit quality and sweetness.</p>
+                    
+                    <h5>Fertilizer Combination</h5>
+                    <p><strong>N-P-K Ratio:</strong> 30:20:40.</p>
+                    <p><strong>Application:</strong> Apply 50–80 kg/ha of nitrogen, 40–50 kg/ha of phosphorus, and 60–80 kg/ha of potassium.</p>
+                    <ul>
+                        <li>Fertilize in stages, particularly during early growth, flowering, and fruit formation for optimal nutrient availability.</li>
+                    </ul>
+                    
+                    <h5>Growing Techniques</h5>
+                    <ul>
+                        <li><strong>Sow Spacing:</strong> Sow seeds with a 1-meter spacing between plants to allow sufficient space for vine spread.</li>
+                        <li><strong>Row Spacing:</strong> Maintain 2–3 meters between rows to ensure adequate airflow and sunlight, which helps reduce disease risk.</li>
+                    </ul>
+                    
+                    <h5>Additional Tips</h5>
+                    <ul>
+                        <li><strong>Watering:</strong> Consistent, deep watering is essential, especially during flowering and fruit development stages, to ensure juicy, large fruit. However, reduce watering as fruits reach maturity to concentrate sugars for better sweetness.</li>
+                        <li><strong>Mulching:</strong> Apply mulch around the plants to retain soil moisture, suppress weeds, and warm the soil for faster growth.</li>
+                        <li><strong>Pollination:</strong> Encourage pollinators by planting flowering plants nearby, as successful pollination significantly affects fruit set and size.</li>
+                        <li><strong>Pest and Disease Management:</strong> Watch for common pests like aphids and beetles, and apply organic pest controls if needed. Practice crop rotation to reduce disease pressure in successive plantings.</li>
+                    </ul>
+                    
+
+                    {% elif crop == "Grapes" %}
+                    <h5>Grape Cultivation</h5>
+
+                    <h5>Season</h5>
+                    <ul>
+                        <li><strong>Planting:</strong> Best in winter or early spring, allowing vines to establish before the hot summer months.</li>
+                    </ul>
+                    
+                    <h5>Climate</h5>
+                    <p>Thrives in regions with dry, hot summers and mild winters. Grapevines benefit from prolonged sunshine, which enhances sugar content and fruit quality.</p>
+                    
+                    <h5>Soil</h5>
+                    <p>Prefers well-drained, slightly alkaline soil with a pH of 6.5–7.5. Good drainage is essential to avoid root rot, which grapes are particularly sensitive to.</p>
+                    
+                    <h5>Nutrient Requirement</h5>
+                    <p>Needs nitrogen (N) for leaf and stem growth, phosphorus (P) for root and flower development, and potassium (K) to improve fruit quality and sweetness.</p>
+                    
+                    <h5>Fertilizer Combination</h5>
+                    <p><strong>N-P-K Ratio:</strong> 30:20:40.</p>
+                    <p><strong>Application:</strong> Apply 60–80 kg/ha of nitrogen, 30–40 kg/ha of phosphorus, and 60–80 kg/ha of potassium.</p>
+                    <ul>
+                        <li>Fertilize in stages, particularly before flowering, at fruit set, and during berry development for sustained nutrient availability.</li>
+                    </ul>
+                    
+                    <h5>Growing Techniques</h5>
+                    <ul>
+                        <li><strong>Trellis Systems:</strong> Support vines on trellis systems to improve airflow, maximize sunlight exposure, and ease harvesting. Common trellis structures include T-trellis, V-trellis, and arbors, depending on vineyard setup.</li>
+                        <li><strong>Spacing:</strong> Space vines 1–2 meters apart with 2–3 meters between rows to prevent overcrowding and allow for air circulation.</li>
+                    </ul>
+                    
+                    <h5>Additional Tips</h5>
+                    <ul>
+                        <li><strong>Pruning:</strong> Regular pruning is essential to control vine size, increase airflow, and direct energy into fruit production, improving both yield and fruit quality.</li>
+                        <li><strong>Watering:</strong> Water moderately, especially during dry spells, but avoid overwatering, particularly as grapes mature to enhance sweetness.</li>
+                        <li><strong>Mulching:</strong> Use organic mulch around the base to retain soil moisture, regulate temperature, and suppress weed growth.</li>
+                        <li><strong>Pest and Disease Management:</strong> Common pests include grape leafhoppers and spider mites. Use organic pest sprays and monitor vines regularly. To prevent fungal diseases, ensure good air circulation and apply fungicides as needed.</li>
+                    </ul>
+                    
+
+                    {% elif crop == "Mango" %}
+                    <h5>Mango Cultivation</h5>
+
+                    <h5>Season</h5>
+                    <ul>
+                        <li><strong>Planting:</strong> Best in spring for optimal growth and fruit setting, after the cold season has passed.</li>
+                    </ul>
+                    
+                    <h5>Climate</h5>
+                    <p>Mango trees prefer warm, dry conditions with temperatures between 24–30°C. They require a dry period for flowering and fruit development, making them ideal for tropical and subtropical climates.</p>
+                    
+                    <h5>Soil</h5>
+                    <p>Prefers well-drained, slightly acidic soil with a pH between 5.5–7.5. Soil should not retain excess water, as mangoes are sensitive to waterlogged conditions.</p>
+                    
+                    <h5>Nutrient Requirement</h5>
+                    <p>Needs balanced nitrogen (N) for vegetative growth, phosphorus (P) for root development, and potassium (K) to enhance fruit quality.</p>
+                    
+                    <h5>Fertilizer Combination</h5>
+                    <p><strong>N-P-K Ratio:</strong> 50:25:25.</p>
+                    <p><strong>Application:</strong> Apply 100–200 g/tree of nitrogen, 50–100 g/tree of phosphorus, and 100–150 g/tree of potassium.</p>
+                    <ul>
+                        <li>Fertilize in stages—during early spring, before flowering, and during fruit setting—to ensure a steady nutrient supply.</li>
+                    </ul>
+                    
+                    <h5>Growing Techniques</h5>
+                    <ul>
+                        <li><strong>Spacing:</strong> Plant trees 10–15 meters apart to allow for full canopy spread and ensure ample sunlight exposure for better fruit development.</li>
+                        <li><strong>Pruning:</strong> Prune young trees for a single main stem to encourage stronger, healthier growth and better sunlight penetration.</li>
+                    </ul>
+                    
+                    <h5>Additional Tips</h5>
+                    <ul>
+                        <li><strong>Watering:</strong> Once the trees are well-established, reduce irrigation to avoid excess moisture, which can affect fruit quality. Water only during dry spells, especially during flowering and fruiting stages.</li>
+                        <li><strong>Frost Protection:</strong> Protect young mango trees from frost during early years, as they are highly sensitive to cold temperatures. Consider using frost covers or plant in sheltered locations.</li>
+                        <li><strong>Mulching:</strong> Use organic mulch to conserve moisture, maintain soil temperature, and suppress weeds.</li>
+                        <li><strong>Pest Management:</strong> Keep an eye out for pests like mango weevils and aphids. Organic sprays can be used for pest control, but always apply them sparingly to avoid harming beneficial insects.</li>
+                    </ul>
+                    
+
+                    {% else %}
+                        <p>Currently, we do not have specific information for {{ crop }}. Please consult agricultural experts for further guidance on {{ crop }} cultivation.</p>
+                    {% endif %}
+                </div>
+                <a href="/" class="btn btn-primary mt-4">Go Back</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
